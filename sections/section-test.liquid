@@ -1,0 +1,407 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  .related-products-container .header .spacer:after,
+  .related-products-container .footer .spacer:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #eab308;
+    right: 0;
+    top: 50%;
+    position :absolute;
+  }
+</style>
+
+<div class="section-carousel p-12 lg:p-24 flex flex-row w-full overflow-hidden">
+  <div
+    class="related-products-container flex-wrap flex-row w-full"
+    data-list-name="Related products"
+    id="relatedProducts--{{ section.id }}"
+  >
+    {% if section.settings.heading_text != blank %}
+      <div class="header relative flex w-full flex-nowrap flex-row wr flex flex-row justify-between mb-12">
+        <h2 class="text-blue-700 text-6xl flex-none">{{ section.settings.heading_text }}</h2>
+        <div class="spacer grow w-full relative ml-7 mr-7 hidden md:flex">&nbsp;</div>
+        <div class="collection__view-all flex-none hidden md:flex">
+          <a
+            href="{{ section.settings.collection.url }}"
+            class="link text-yellow-500 no-underline relative"
+            aria-label="Shop all Label"
+          >
+            Shop all
+            <svg
+              width="14"
+              height="14"
+              class="absolute -right-7 top-1 -rotate-45"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M4 12h12M12 4l8 8-8 8" stroke="orange" stroke-width="2" fill="none" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% comment %} Placeholder collection {% endcomment %}
+        {% if section.settings.collection.products == null %}
+            <div class="swiper-slide">
+              <div class="product-card flex flex-col w-full" id="product-001">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="promo-option absolute top-1 left-1 flex flex-col">
+                    <p class="text-blue-700 text-sm p-2 bg-white">Best Seller</p>
+                  </div>
+                  <img src="{{ "table.jpg" | asset_url }}" alt=" table Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">Volta Coffee Table</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£33.00</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="001">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">3 options available</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-card flex flex-col w-full" id="product-002">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="promo-option absolute top-1 left-1 flex flex-col">
+                    <p class="text-blue-700 text-sm p-2 bg-pink-600 text-white rounded-full">Best Seller</p>
+                  </div>
+                  <img src="{{ "table.jpg" | asset_url }}" alt=" table Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">Coffee Table</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£33.00</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="002">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">4 options available</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-card flex flex-col w-full" id="product-003">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <img src="{{ "table.jpg" | asset_url }}" alt=" table Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">Small Coffee Table</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£33.00</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="003">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">4 options available</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide"> 
+              <div class="product-card flex flex-col w-full" id="product-004">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="promo-option absolute top-1 left-1 flex flex-col">
+                  </div>
+                  <img src="{{ "table.jpg" | asset_url }}" alt=" table Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">Kid's Table</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£33.00</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="004">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">4 options available</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide"> 
+              <div class="product-card flex flex-col w-full" id="product-005">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="promo-option absolute top-1 left-1 flex flex-col">
+                    <p class="text-blue-700 text-sm p-2 bg-white">Best Seller</p>
+                  </div>
+                  <img src="{{ "table.jpg" | asset_url }}" alt=" table Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">Large Coffee Table</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£33.00</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="005">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">4 options available</p>
+                </div>
+              </div>
+            </div>
+        {% else %}
+        {% comment %} Add Collection from cusrtomiser {% endcomment %}
+          {%- for product in section.settings.collection.products -%}
+            <div class="swiper-slide">
+              <div class="product-card flex flex-col w-full" id="product-{{ product.id }}">
+                <div class="product-images max-h-80 w-full flex relative">
+                  <div class="wishlist-btn absolute top-1 right-1 w-8 h-8 flex flex-col">
+                    <svg
+                      width="100"
+                      height="100"
+                      class="text-yellow-500 w-full flex stroke-current"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#eab308" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <img src="{{ product.featured_media | image_url }}" alt="{{ product.title }} Image">
+                </div>
+                <div class="outer-content-wrapper flex flex-row w-full items-baseline mt-4">
+                  <div class="content flex flex-col w-full justify-start">
+                    <h2 class="leading-none text-blue-700 text-xl">{{ product.title }}</h2>
+                    <div class="product-price">
+                      <p class="text-blue-700 text-sm">£{{ product.price }}</p>
+                    </div>
+                  </div>
+                  <button type="button" class="add-to-cart-button" data-product-id="{{ product.id }}">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus text-yellow-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.5.5 0 0 0-.5.5V7H1.5a.5.5 0 0 0 0 1H7v5.5a.5.5 0 0 0 1 0V8h5.5a.5.5 0 0 0 0-1H8V1.5A.5.5 0 0 0 8 1z"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="variants border-t border-solid border-gray-400">
+                  <p class="text-blue-700 text-sm mt-1">4 colours available</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="footer relative w-full flex-nowrap flex-row wr flex-row justify-between mt-6 flex md:hidden">
+      <div class="spacer grow w-full relative mr-7 flex">&nbsp;</div>
+      <div class="collection__view-all flex-none">
+        <a
+          href="{{ section.settings.collection.url }}"
+          class="link text-yellow-500 no-underline relative"
+          aria-label="Shop all Label"
+        >
+          Shop all
+          <svg
+            width="14"
+            height="14"
+            class="absolute -right-7 top-1 -rotate-45"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4 12h12M12 4l8 8-8 8" stroke="orange" stroke-width="2" fill="none" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    //LOAD SWIPE CONFIG
+    const containerSwipe = document.querySelector('#relatedProducts--{{ section.id }} .swiper-container');
+    if (containerSwipe) {
+      var swiper = new Swiper(containerSwipe, {
+        slidesPerView: 1.5,
+        centeredSlides: false,
+        spaceBetween: 10,
+        grabCursor: true,
+        loop: false,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          750: {
+            slidesPerView: 4.5,
+            spaceBetween: 16,
+          },
+          990: {
+            slidesPerView: 4.5,
+            spaceBetween: 16,
+          },
+        },
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Related Products",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Section heading",
+      "default": "Related Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Products"
+    }
+  ]
+}
+{% endschema %}
